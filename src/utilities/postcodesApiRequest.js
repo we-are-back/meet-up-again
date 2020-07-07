@@ -19,7 +19,7 @@ const checkPostcodes = async (postcodeOne, postcodeTwo) => {
                     latitutde: ""
                 })
             } else {
-                return finalPostcodes.notValidPostcodes.push(postcode.postcode);
+                return finalPostcodes.notValidPostcodes.push(postcode);
             }
         })
         return finalPostcodes;
