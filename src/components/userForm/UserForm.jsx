@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import checkPostcodes from "../../utilities/postcodesApiRequest";
 
 const UserForm = ({ page, setPage }) => {
+    const [postCode1, setPostCode1] = useState("");
+    const [postCode2, setPostCode2] = useState("");
+    const arr = [postCode1, postCode2]
   if (page !== "form") {
     return null;
   }
@@ -22,14 +25,6 @@ const UserForm = ({ page, setPage }) => {
     } setPage('locations')
   };
 
-const UserForm = ({ page, setPage}) => {
-    const [postCode1, setPostCode1] = useState("");
-    const [postCode2, setPostCode2] = useState("");
-    const arr = [postCode1, postCode2]
-
-    if(page !== "form") {
-        return null;
-    }
     return (
         <>
         <div>
