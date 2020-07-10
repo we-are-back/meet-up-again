@@ -46,6 +46,16 @@ describe("Test user form", () => {
     expect(inputField.value).toBe("xxxxx");
   });
 
+  //if both input field have a postcode and user press the button 
+  // it("Submits empty postcode fields", () => {
+  //   const onSubmit = jest.fn();
+  //   const { getByTestId } = component;
+  //   const button = getByTestId("form-submit")
+  //   fireEvent.submit(button)
+  //   expect(onSubmit).toHaveBeenCalledTimes(1);
+  // })
+
+
   afterEach(cleanup);
 });
 

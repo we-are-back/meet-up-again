@@ -40,7 +40,7 @@ const UserForm = ({ page, setPage }) => {
     <>
       <div>
         <h1> hello I am the user form </h1>
-        <form onSubmit={formSubmit}>
+        <form onSubmit={formSubmit} data-testid="form-submit">
           <input
             type="text"
             value={postCode1}
