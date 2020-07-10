@@ -55,7 +55,7 @@ const UserForm = ({ page, setPage }) => {
           />
           <input type="submit" value="Find Locations" />
         </form>
-      </div>
+        </div>
     </>
   );
 };
