@@ -45,17 +45,19 @@ const UserForm = ({ page, setPage }) => {
             type="text"
             value={postCode1}
             name="PostCodeOne"
+            data-testid="change-first-postcode"
             onChange={e => setPostCode1(e.target.value)}
           />
           <input
             type="text"
             value={postCode2}
             name="PostCodeTwo"
+            data-testid="change-second-postcode"
             onChange={e => setPostCode2(e.target.value)}
           />
           <input type="submit" value="Find Locations" />
         </form>
-        </div>
+      </div>
     </>
   );
 };
