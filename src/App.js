@@ -9,7 +9,6 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Learn react</h1>
       <LandingPage page={pageActive} setPage={setPageActive} />
       <UserForm page={pageActive} setPage={setPageActive} />
       <Locations page={pageActive} setPage={setPageActive} />

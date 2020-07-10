@@ -40,22 +40,24 @@ const UserForm = ({ page, setPage }) => {
     <>
       <div>
         <h1> hello I am the user form </h1>
-        <form onSubmit={formSubmit}>
+        <form onSubmit={formSubmit} data-testid="form-submit">
           <input
             type="text"
             value={postCode1}
             name="PostCodeOne"
+            data-testid="Enter your postcode"
             onChange={e => setPostCode1(e.target.value)}
           />
           <input
             type="text"
             value={postCode2}
             name="PostCodeTwo"
+            data-testid="Enter your friend postcode"
             onChange={e => setPostCode2(e.target.value)}
           />
           <input type="submit" value="Find Locations" />
         </form>
-        </div>
+      </div>
     </>
   );
 };
