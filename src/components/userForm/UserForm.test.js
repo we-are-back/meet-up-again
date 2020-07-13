@@ -2,10 +2,11 @@ import React from "react";
 import { render, fireEvent, cleanup } from "@testing-library/react";
 import ReactDOM from "react-dom";
 import UserForm from "./UserForm";
-import App from '../../App';
+import App from "../../App";
+import Form from "../userForm/Form";
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
+it("renders without crashing", () => {
+  const div = document.createElement("div");
   ReactDOM.render(<UserForm />, div);
 });
 
@@ -17,9 +18,10 @@ it('renders without crashing', () => {
 
 describe("Test user form", () => {
   let component;
+  const onSubmit = jest.fn();
 
   beforeEach(() => {
-    component = render(<App />);
+    component = render(<App onClick={onSubmit}/>);
     const button = component.container.querySelector("button");
     fireEvent.click(button);
   });
@@ -46,16 +48,45 @@ describe("Test user form", () => {
     expect(inputField.value).toBe("xxxxx");
   });
 
-  //if both input field have a postcode and user press the button 
-  // it("Submits empty postcode fields", () => {
-  //   const onSubmit = jest.fn();
-  //   const { getByTestId } = component;
-  //   const button = getByTestId("form-submit")
-  //   fireEvent.submit(button)
-  //   expect(onSubmit).toHaveBeenCalledTimes(1);
-  // })
-
-
   afterEach(cleanup);
 });
+
+describe("", () => {
+  // let component;
+
+  // if both input field have a postcode and user press the button
+  // it("Button click runs a function that takes two input fields as arguments", () => {
+  //   const onSubmit = jest.fn();
+  //   component = render(<Form onSubmit={onSubmit} />);
+  //   const submit = component.getByTestId("input-submit");
+  //   console.log(submit)
+  //   fireEvent.click(submit);
+  //   // console.log(onSubmit);
+  //   expect(onSubmit).toHaveBeenCalled();
+  // });
+
+  test('submits username and password', () => { 
+    const postCode3 = 'xxxxx';
+    const postCode4 = 'yyyyy';
+    const onSubmit = jest.fn();
+    const { getByTestId, getByRole } = render(
+      <Form onSubmit={onSubmit} />
+    );  
+    fireEvent.change(getByTestId("Enter your postcode"), {
+      target: { value: postCode3}
+    });  
+    fireEvent.change(getByTestId("Enter your friend postcode"), {
+      target: { value: postCode4 }
+    });  
+    fireEvent.click(getByTestId("input-submit", { value: "Find Locations" }));  
+    expect(onSubmit).toHaveBeenCalledTimes(1);
+    expect(onSubmit).toHaveBeenCalledWith({
+      postCode3,
+      postCode4
+    });
+  });
+  
+})
+
+
 
