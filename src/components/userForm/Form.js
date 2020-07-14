@@ -1,37 +1,40 @@
-import React, {useState} from "react";
-import checkPostcodes from "../../utilities/postcodesApiRequest";
- 
+import React, { useState } from "react";
+import postCodeApiRequest from "../../utilities/postcodesApiRequest";
+import { getCenterOfBounds } from "geolib";
 
-const Form = ({ page, setPage}) => {
-    const [postCode1, setPostCode1] = useState("");
-    const [postCode2, setPostCode2] = useState("");
-    const [returnedPostcodes, setReturnedPostcodes] = useState([]);
 
-    const formSubmit = async event => {
-        event.preventDefault();
-    
-        const verifiedPostcodes = await checkPostcodes(postCode1, postCode2);
-    
-        if (verifiedPostcodes.notValidPostcodes.length > 0) {
-          const notValidPostcodeArray = verifiedPostcodes.notValidPostcodes.map(
-            el => el.query
-          );
-          console.log(notValidPostcodeArray);
-          if (notValidPostcodeArray.includes(postCode1)) {
-            setPostCode1("");
-          }
-          if (notValidPostcodeArray.includes(postCode2)) {
-            setPostCode2("");
-          }
-    
-          return alert(`this postcode is not valid: ${notValidPostcodeArray}`);
-        }
-    
-        setReturnedPostcodes(
-          returnedPostcodes.push(verifiedPostcodes.validPostcodes)
-        );
-        setPage("locations");
-      };
+const Form = ({ page, setPage }) => {
+  const [postCode1, setPostCode1] = useState("");
+  const [postCode2, setPostCode2] = useState("");
+  const [returnedPostcodes, setReturnedPostcodes] = useState([]);
+
+  const formSubmit = async event => {
+    event.preventDefault();
+
+    const verifiedPostcodes = await postCodeApiRequest(postCode1, postCode2);
+
+    if (verifiedPostcodes.notValidPostcodes.length > 0) {
+      const notValidPostcodeArray = verifiedPostcodes.notValidPostcodes.map(
+        el => el.query
+      );
+      console.log(notValidPostcodeArray);
+      if (notValidPostcodeArray.includes(postCode1)) {
+        setPostCode1("");
+      }
+      if (notValidPostcodeArray.includes(postCode2)) {
+        setPostCode2("");
+      }
+
+      return alert(`this postcode is not valid: ${notValidPostcodeArray}`);
+    }
+
+    setReturnedPostcodes(
+      returnedPostcodes.push(verifiedPostcodes.validPostcodes)
+    );
+    const centerPoint = getCenterOfBounds(verifiedPostcodes.validPostcodes);
+    console.log(centerPoint)
+    setPage("locations");
+  };
   return (
     <>
       <form onSubmit={formSubmit} data-testid="form-submit">
