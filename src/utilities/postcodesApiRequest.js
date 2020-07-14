@@ -5,7 +5,7 @@ const checkPostcodes = async (postcodeOne, postcodeTwo) => {
     const baseUrl = "https://api.postcodes.io";
 
     const finalPostcodes = { validPostcodes: [], notValidPostcodes: [] };
-    console.log(baseUrl)
+    // console.log(baseUrl)
     try {
         const postCodeResponse = await axios.post(`${baseUrl}/postcodes`, {
             "postcodes": [postcodeOne, postcodeTwo]
