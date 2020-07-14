@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import postCodeApiRequest from "../../utilities/postcodesApiRequest";
+import { getCenterOfBounds } from "geolib";
 
 
 const Form = ({ page, setPage }) => {
@@ -30,6 +31,9 @@ const Form = ({ page, setPage }) => {
     setReturnedPostcodes(
       returnedPostcodes.push(verifiedPostcodes.validPostcodes)
     );
+    console.log(verifiedPostcodes.validPostcodes)
+    const centerPoint = getCenterOfBounds(verifiedPostcodes.validPostcodes);
+    console.log(centerPoint)
     setPage("locations");
   };
   return (

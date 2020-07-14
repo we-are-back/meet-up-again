@@ -1,6 +1,5 @@
 import axios from "axios";
 
-
 const postCodeApiRequest = async (postcodeOne, postcodeTwo) => {
     const baseUrl = "https://api.postcodes.io";
     const finalPostcodes = { validPostcodes: [], notValidPostcodes: [] };
@@ -12,9 +11,9 @@ const postCodeApiRequest = async (postcodeOne, postcodeTwo) => {
         postCodeResponse.data.result.map(postcode => {
             if (postcode.result !== null) {
                 return finalPostcodes.validPostcodes.push({
-                    postcode: postcode.query,
+                    // postcode: postcode.query,
                     longitude: postcode.result.longitude,
-                    latitutde: postcode.result.longitude
+                    latitude: postcode.result.latitude
                 })
             } else {
                 return finalPostcodes.notValidPostcodes.push(postcode);
