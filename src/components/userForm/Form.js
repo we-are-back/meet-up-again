@@ -31,7 +31,6 @@ const Form = ({ page, setPage }) => {
     setReturnedPostcodes(
       returnedPostcodes.push(verifiedPostcodes.validPostcodes)
     );
-    console.log(verifiedPostcodes.validPostcodes)
     const centerPoint = getCenterOfBounds(verifiedPostcodes.validPostcodes);
     console.log(centerPoint)
     setPage("locations");

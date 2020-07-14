@@ -11,7 +11,7 @@ const postCodeApiRequest = async (postcodeOne, postcodeTwo) => {
         postCodeResponse.data.result.map(postcode => {
             if (postcode.result !== null) {
                 return finalPostcodes.validPostcodes.push({
-                    // postcode: postcode.query,
+                    postcode: postcode.query,
                     longitude: postcode.result.longitude,
                     latitude: postcode.result.latitude
                 })
