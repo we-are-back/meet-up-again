@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import checkPostcodes from "../../utilities/postcodesApiRequest";
 
-
 const Form = ({ page, setPage }) => {
   const [postCode1, setPostCode1] = useState("");
   const [postCode2, setPostCode2] = useState("");
   const [returnedPostcodes, setReturnedPostcodes] = useState([]);
 
   const formSubmit = async event => {
+    console.log("The form submit in Form.js has been run")
     event.preventDefault();
 
     const verifiedPostcodes = await checkPostcodes(postCode1, postCode2);
@@ -33,34 +33,29 @@ const Form = ({ page, setPage }) => {
     setPage("locations");
   };
   return (
-    <>
-      <form onSubmit={formSubmit} data-testid="form-submit">
-        <label id="postcode-input">post</label>
-        <input
-          aria-labelledby="postcode-input"
-          type="text"
-          value={postCode1}
-          name="PostCodeOne"
-          data-testid="Enter your postcode"
-          onChange={(e) => setPostCode1(e.target.value)}
-        />
-        <label id="postcode-input">post</label>
-        <input
-          aria-labelledby="postcode-input"
-          type="text"
-          value={postCode2}
-          name="PostCodeTwo"
-          data-testid="Enter your friend postcode"
-          onChange={(e) => setPostCode2(e.target.value)}
-        />
-        {/* <input
-          type="submit"
-          value="Find Locations"
-          data-testid="input-submit"
-        /> */}
-        <button data-testid="input-submit">click</button>
-      </form>
-    </>
+    <form onSubmit={formSubmit} data-testid="form-submit">
+      <input
+        type="text"
+        value={postCode1}
+        name="PostCodeOne"
+        data-testid="Enter your postcode"
+        onChange={(e) => setPostCode1(e.target.value)}
+      />
+      <input
+        type="text"
+        value={postCode2}
+        name="PostCodeTwo"
+        data-testid="Enter your friend postcode"
+        onChange={(e) => setPostCode2(e.target.value)}
+      />
+      <input
+        type="submit"
+        value="Find Locations"
+        data-testid="input-submit"
+      />
+      {/* <button data-testid="input-submit">click</button> */}
+    </form>
+
   );
 };
 
