@@ -1,38 +1,20 @@
-import React, { useState } from "react";
-import postCodeApiRequest from "../../utilities/postcodesApiRequest";
-import { getCenterOfBounds } from "geolib";
+import React, {useState} from "react";
+import formSubmitLogic from "../../utilities/logic";
 
-
-const Form = ({ page, setPage }) => {
+const Form = ({ page, setPage, locations, setLocations }) => {
   const [postCode1, setPostCode1] = useState("");
   const [postCode2, setPostCode2] = useState("");
-  const [returnedPostcodes, setReturnedPostcodes] = useState([]);
 
-  const formSubmit = async event => {
+  const formSubmit =  async event => {
     event.preventDefault();
+    const formResult = await formSubmitLogic(postCode1,postCode2);
 
-    const verifiedPostcodes = await postCodeApiRequest(postCode1, postCode2);
-
-    if (verifiedPostcodes.notValidPostcodes.length > 0) {
-      const notValidPostcodeArray = verifiedPostcodes.notValidPostcodes.map(
-        el => el.query
-      );
-      console.log(notValidPostcodeArray);
-      if (notValidPostcodeArray.includes(postCode1)) {
-        setPostCode1("");
-      }
-      if (notValidPostcodeArray.includes(postCode2)) {
-        setPostCode2("");
-      }
-
-      return alert(`this postcode is not valid: ${notValidPostcodeArray}`);
+    if(formResult.faultyPostcodes.length > 0){
+      if (formResult.faultyPostcodes.includes(postCode1)) setPostCode1("");
+      if (formResult.faultyPostcodes.includes(postCode2)) setPostCode2("");
+      return alert(`this postcode is not valid: ${formResult.faultyPostcodes}`);
     }
-
-    setReturnedPostcodes(
-      returnedPostcodes.push(verifiedPostcodes.validPostcodes)
-    );
-    const centerPoint = getCenterOfBounds(verifiedPostcodes.validPostcodes);
-    console.log(centerPoint)
+    setLocations(formResult.locations);
     setPage("locations");
   };
   return (
@@ -57,10 +39,10 @@ const Form = ({ page, setPage }) => {
           value="Find Locations"
           data-testid="input-submit"
         />
-        {/* <button onSubmit={formSubmit} data-testid="form-submit">CLICK</button> */}
       </form>
     </>
   );
 };
+
 
 export default Form;

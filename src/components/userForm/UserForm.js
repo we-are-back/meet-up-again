@@ -1,7 +1,7 @@
 import React from "react";
 import Form from './Form';
 
-const UserForm = ({ page, setPage }) => {
+const UserForm = ({ page, setPage, locations, setLocations }) => {
 
   if (page !== "form") {
     return null;
@@ -12,7 +12,7 @@ const UserForm = ({ page, setPage }) => {
     <>
       <div>
         <h1> hello I am the user form </h1>
-        <Form page={page} setPage={setPage}/>
+        <Form page={page} setPage={setPage} locations={locations} setLocations={setLocations}/>
       </div>
     </>
   );
