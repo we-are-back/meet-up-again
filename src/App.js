@@ -8,12 +8,21 @@ const App = () => {
   const [pageActive, setPageActive] = useState("landing");
   const [locations, setLocations] = useState([]);
 
-
   return (
     <div className="App">
       <LandingPage page={pageActive} setPage={setPageActive} />
-      <UserForm page={pageActive} setPage={setPageActive} locations={locations} setLocations={setLocations}/>
-      <Locations page={pageActive} setPage={setPageActive} />
+      <UserForm
+        page={pageActive}
+        setPage={setPageActive}
+        locations={locations}
+        setLocations={setLocations}
+      />
+      <Locations
+        page={pageActive}
+        setPage={setPageActive}
+        locations={locations}
+        setLocations={setLocations}
+      />
     </div>
   );
 };
