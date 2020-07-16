@@ -14,8 +14,7 @@ const Form = ({ page, setPage, locations, setLocations }) => {
       if (formResult.faultyPostcodes.includes(postCode2)) setPostCode2("");
       return alert(`this postcode is not valid: ${formResult.faultyPostcodes}`);
     }
-    setLocations(locations.push(...formResult.locations));
-    console.log("locations", locations);
+    setLocations(locations.concat(...formResult.locations));
     setPage("locations");
   };
   return (
