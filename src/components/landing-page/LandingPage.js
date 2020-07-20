@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button, Header, Icon} from 'semantic-ui-react'
 
 const LandingPage = ({ page, setPage }) => {
     if (page !== "landing") {
@@ -6,9 +7,9 @@ const LandingPage = ({ page, setPage }) => {
     }
     return (
         <div>
-
-            <h1>Landing page </h1>
-            <button onClick={() => setPage("form")}>next page</button>
+            <Header as='h1'>We will meet again</Header>
+            <Icon name='beer' size='big' />
+            <Button onClick={() => setPage("form")}>Next Page</Button>
         </div>
     )
 };
