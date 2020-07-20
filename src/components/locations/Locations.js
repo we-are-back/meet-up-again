@@ -2,19 +2,19 @@
 import React from "react";
 import LocationItem from "./location-item/LocationItem";
 
-const Locations = ({ page, setPage, locations, setLocations }) => {
+const Locations = ({ page, setPage, locations, setLocations, setVenueId }) => {
   if (page !== "locations") {
     return null;
   }
-  console.log("locations in locationComp", locations);
-  //   console.log(formResult.locations, "form locations");
+
   return (
     <div>
       <h1>List of locations</h1>
       {locations.map(location => (
-        <LocationItem location={location} />
+        <LocationItem key={location.id} location={location} setPage={setPage} setVenueId={setVenueId}/>
       ))}
-      <button onClick={() => setPage("result")}>Results</button>
+  
+      <button onClick={() => setPage("form")}>Go back</button>
     </div>
   );
 };

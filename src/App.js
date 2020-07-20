@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import LandingPage from "./components/landing-page/LandingPage";
 import UserForm from "./components/userForm/UserForm";
 import Locations from "./components/locations/Locations";
+import Result from "./components/result/Result"
 import "./App.css";
 
 const App = () => {
   const [pageActive, setPageActive] = useState("landing");
   const [locations, setLocations] = useState([]);
+  const [venueId, setVenueId] = useState();
+
   return (
     <div className="App">
       <LandingPage page={pageActive} setPage={setPageActive} />
@@ -21,7 +24,9 @@ const App = () => {
         setPage={setPageActive}
         locations={locations}
         setLocations={setLocations}
+        setVenueId={setVenueId}
       />
+      <Result page={pageActive} venueId={venueId} locations={locations} setPageActive={setPageActive}/>
     </div>
   );
 };
