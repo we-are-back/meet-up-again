@@ -15,10 +15,10 @@ const Result = ({ page, venueId, locations, setPageActive }) => {
     return (
         <Card variant="outlined">
             <CardContent>
-                <Typography component="h1" variant="h5">Hurray, you are going to:</Typography>
+                <Typography variant="subtitle1" paragraph>Hurray, you are going to:</Typography>
                 <Typography component="h2" variant="h5">{venue.name}</Typography>
                 <Typography component="h3" variant="h5">{venue.location.formattedAddress.map(item => <p>{item}</p>)}</Typography>
-                <Typography component="h4" variant="h5">What a great place to meet!</Typography>
+                <Typography variant="subtitle1" paragraph>What a great place to meet!</Typography>
             </CardContent>
             <CardActions>
                 <Button color="primary" variant="contained" onClick={handleBack}>Select another venue</Button>
