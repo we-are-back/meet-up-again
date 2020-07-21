@@ -3,6 +3,8 @@ import LandingPage from "./components/landing-page/LandingPage";
 import UserForm from "./components/userForm/UserForm";
 import Locations from "./components/locations/Locations";
 import Result from "./components/result/Result"
+import { CssBaseline, Container } from "@material-ui/core";
+
 import "./App.css";
 
 const App = () => {
@@ -11,7 +13,8 @@ const App = () => {
   const [venueId, setVenueId] = useState();
 
   return (
-    <div className="App">
+    <Container maxWidth="lg" className="App">
+      <CssBaseline />
       <LandingPage page={pageActive} setPage={setPageActive} />
       <UserForm
         page={pageActive}
@@ -26,8 +29,8 @@ const App = () => {
         setLocations={setLocations}
         setVenueId={setVenueId}
       />
-      <Result page={pageActive} venueId={venueId} locations={locations} setPageActive={setPageActive}/>
-    </div>
+      <Result page={pageActive} venueId={venueId} locations={locations} setPageActive={setPageActive} />
+    </Container>
   );
 };
 

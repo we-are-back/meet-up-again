@@ -1,6 +1,8 @@
 // // component
 import React from "react";
 import LocationItem from "./location-item/LocationItem";
+import { Button, Typography} from "@material-ui/core";
+
 
 const Locations = ({ page, setPage, locations, setLocations, setVenueId }) => {
   if (page !== "locations") {
@@ -9,13 +11,13 @@ const Locations = ({ page, setPage, locations, setLocations, setVenueId }) => {
 
   return (
     <div>
-      <h1>List of locations</h1>
+      <Typography component="h1" variant="h2">List of locations</Typography>
       {!locations.length ? <p>No locations could be found</p> : locations.map(location => (
         <LocationItem key={location.id} location={location} setPage={setPage} setVenueId={setVenueId} />
       ))}
 
-      <button onClick={() => setPage("form")}>Go back</button>
-    </div >
+      <Button variant="contained" color="primary" onClick={() => setPage("form")}>Go back</Button>
+    </div>
   );
 };
 

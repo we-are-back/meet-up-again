@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import formSubmitLogic from "../../utilities/logic";
 
-const Form = ({ page, setPage, locations, setLocations }) => {
+const UserForm = ({ page, setPage, locations, setLocations }) => {
   const [postCode1, setPostCode1] = useState("");
   const [postCode2, setPostCode2] = useState("");
 
@@ -44,4 +44,5 @@ const Form = ({ page, setPage, locations, setLocations }) => {
   );
 };
 
-export default Form;
+export default UserForm;
+

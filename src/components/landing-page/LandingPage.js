@@ -1,16 +1,47 @@
 import React from 'react';
-import { Button, Header, Icon} from 'semantic-ui-react'
+import { Button, Avatar, Container, makeStyles, Typography } from "@material-ui/core";
+import SentimentVerySatisfiedIcon from '@material-ui/icons/SentimentVerySatisfied';
+
+const useStyles = makeStyles((theme) => ({
+    paper: {
+        marginTop: theme.spacing(30),
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+    },
+    avatar: {
+        margin: theme.spacing(1),
+        backgroundColor: theme.palette.secondary.main,
+    }
+    // form: {
+    //     width: '100%', // Fix IE 11 issue.
+    //     marginTop: theme.spacing(1),
+    // },
+    // submit: {
+    //     margin: theme.spacing(3, 0, 2),
+    // },
+}));
 
 const LandingPage = ({ page, setPage }) => {
+    const classes = useStyles();
+
     if (page !== "landing") {
         return null
     }
+
     return (
-        <div>
-            <Header as='h1'>We will meet again</Header>
-            <Icon name='beer' size='big' />
-            <Button onClick={() => setPage("form")}>Next Page</Button>
-        </div>
+        <Container component="main" maxWidth="xs">
+            <div className={classes.paper}>
+                <Avatar className={classes.avatar}>
+                    <SentimentVerySatisfiedIcon />
+                </Avatar>
+                <Typography component="h1" variant="h5">
+                    We will meet again
+                </Typography>
+
+                <Button variant="outlined" size="large" onClick={() => setPage("form")}>Next Page</Button>
+            </div>
+        </Container >
     )
 };
 
