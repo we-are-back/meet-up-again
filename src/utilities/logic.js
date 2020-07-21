@@ -17,11 +17,17 @@ const formSubmitLogic = async (postcode1, postcode2) => {
 
   const centerPoint = getCenterOfBounds(verifiedPostcodes.validPostcodes);
   console.log(result.locations);
-  const apiCallResult = await foursquareApiRequest(
-    centerPoint.latitude,
-    centerPoint.longitude
-  );
-  result.locations.push(apiCallResult);
+  console.log(centerPoint)
+  try {
+    const apiCallResult = await foursquareApiRequest(
+      centerPoint.latitude,
+      centerPoint.longitude
+    );
+    result.locations.push(apiCallResult);
+  } catch (error) {
+    console.log(error.data.message)
+  }
+
   console.log(result.locations);
   return result;
 };
