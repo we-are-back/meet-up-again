@@ -2,17 +2,16 @@ import React, { useState } from "react";
 import LandingPage from "./components/landing-page/LandingPage";
 import UserForm from "./components/userForm/UserForm";
 import Locations from "./components/locations/Locations";
-import Result from "./components/result/Result"
+import Result from "./components/result/Result";
+import "./App.css";
 import { CssBaseline, Container, makeStyles } from "@material-ui/core";
 
-import "./App.css";
-
 // const useStyles = makeStyles((theme) => ({
-//   paper: {
-//     marginTop: theme.spacing(30),
-//     display: 'flex',
-//     flexDirection: 'column',
-//     alignItems: 'center',
+//   outer: {
+//       backgroundColor: 'yellow',
+//       zIndex: 100,
+//       border: "2px solid black",
+      
 //   }
 // }));
 
@@ -23,9 +22,9 @@ const App = () => {
   const [venueId, setVenueId] = useState();
 
   return (
-    <div>
-      <Container maxWidth="lg" className="App">
-        <CssBaseline />
+    // <div>
+    <Container maxWidth="large">
+        {/* <CssBaseline /> */}
         <LandingPage page={pageActive} setPage={setPageActive} />
         <UserForm
           page={pageActive}
@@ -42,8 +41,9 @@ const App = () => {
         />
         <Result page={pageActive} venueId={venueId} locations={locations} setPageActive={setPageActive} />
       </Container>
-    </div>
+    // </div>
   );
 };
+
 
 export default App;

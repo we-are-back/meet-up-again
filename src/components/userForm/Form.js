@@ -21,24 +21,8 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(3),
       width: '25ch',
     },
-    // paper: {
-    //   marginTop: theme.spacing(100),
-    //   display: 'flex',
-    //   flexDirection: 'column',
-    //   alignItems: 'center',
-    // },
   },
 }));
-
-// root: {
-//   display: 'flex',
-//   flexWrap: 'wrap',
-// },
-// textField: {
-//   marginLeft: theme.spacing(1),
-//   marginRight: theme.spacing(1),
-//   width: '25ch',
-// },
 
 const UserForm = ({ page, setPage, locations, setLocations }) => {
   const classes = useStyles();
@@ -59,10 +43,14 @@ const UserForm = ({ page, setPage, locations, setLocations }) => {
   };
   return (
     <div>
-      <Box display="flex"
+      {/* <Box 
+      display="flex"
         alignItems="center"
         justifyContent="center"
-        component="main" maxWidth="md" marginTop='200px'>
+        component="main" 
+        maxWidth="md" 
+        marginTop='200px'> */}
+        <Box className={classes.root}>
         <form className={classes.root} noValidate autoComplete="off" onSubmit={formSubmit} data-testid="form-submit">
           <TextField
             required
