@@ -17,14 +17,15 @@ const useStyles = makeStyles(theme => ({
         justifyContent: "center"
     },
     root: {
-        backgroundColor: "#f7e4cb",
         width: "35%",
+        minWidth: 300,
         height: "50%"
     },
     avatar: {
-        backgroundColor: theme.palette.secondary.main,
+        backgroundColor: theme.palette.secondary.dark,
         justifyContent: "center",
-        fontSize: "large"
+        width: "40px",
+        height: "40px"
     },
     card: {
         height: "100%",
@@ -36,8 +37,7 @@ const useStyles = makeStyles(theme => ({
     button: {
         justifyContent: "center",
         margin: "1rem",
-        backgroundColor: "#f50057",
-        color: "white"
+        color: "primary"
     }
 }));
 
@@ -53,14 +53,15 @@ const LandingPage = ({ page, setPage }) => {
             <Card className={classes.root}>
                 <CardContent className={classes.card}>
                     <Avatar className={classes.avatar}>
-                        <SentimentVerySatisfiedIcon />
+                        <SentimentVerySatisfiedIcon fontSize="large" />
                     </Avatar>
                     <Typography component="h1" variant="h5">
                         We will meet again
                     </Typography>
                     <Button
                         className={classes.button}
-                        variant="outlined"
+                        variant="contained"
+                        color="primary"
                         size="large"
                         onClick={() => setPage("form")}
                     >
