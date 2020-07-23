@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "space-between",
     padding: "2% 0 8% 0",
-    margin: theme.spacing(2,0)
+    margin: theme.spacing(2, 0)
   },
 }));
 
@@ -46,10 +46,13 @@ const UserForm = ({ page, setPage, locations, setLocations }) => {
         name="PostCodeOne"
         data-testid="Enter your postcode"
         onChange={e => setPostCode1(e.target.value)}
+        autoFocus
+        autoCompletes
       />
       <TextField
         required
         fullWidth
+        autoComplete
         id="outlined-required"
         label="Postcode Two"
         variant="outlined"
