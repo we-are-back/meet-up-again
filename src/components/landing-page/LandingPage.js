@@ -28,9 +28,9 @@ const LandingPage = ({ page, setPage }) => {
     }
 
     return (
-        
+
         // <Box component="main" maxWidth="large" className={classes.outerTwo}>
-               <Grid
+        <Grid
             //    container
             //    className={classes.outerTwo}
             //    item large={3}
@@ -38,15 +38,15 @@ const LandingPage = ({ page, setPage }) => {
             //    justify="center"
             //    alignItems="center"
             //    backgroundColor="white"
-               container
-               spacing={0}
-               align="center"
-               justify="center"
-               direction="column"
-               style={{ backgroundColor: 'teal' }}
+            container
+            spacing={0}
+            align="center"
+            justify="center"
+            direction="column"
+            style={{ marginTop: "300px" }}
 
-               > 
-                 <Grid item style={{ backgroundColor: 'yellow' }}>
+        >
+            <Grid item>
                 <Avatar className={classes.avatar}>
                     <SentimentVerySatisfiedIcon />
                 </Avatar>
@@ -54,8 +54,8 @@ const LandingPage = ({ page, setPage }) => {
                     We will meet again
                 </Typography>
                 <Button variant="outlined" size="large" onClick={() => setPage("form")}>Let's start</Button>
-         {/* </Box > */}
-         </Grid>
+                {/* </Box > */}
+            </Grid>
         </Grid>
     )
 };
