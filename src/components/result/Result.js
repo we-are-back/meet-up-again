@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Button, Header, Icon} from 'semantic-ui-react'
 import { Card, CardContent, Button, Typography, CardActions } from '@material-ui/core';
 
 const Result = ({ page, venueId, locations, setPageActive }) => {

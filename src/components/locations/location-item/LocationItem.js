@@ -39,7 +39,6 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(1),
   },
 }));
-// const classes = useStyles();
 
 const locationItem = ({ location, setPage, setVenueId }) => {
 
