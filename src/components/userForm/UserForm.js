@@ -1,6 +1,6 @@
 import React from "react";
 import Form from './Form';
-import { CardHeader, CardContent, Typography, Card, makeStyles } from "@material-ui/core";
+import { CardHeader, CardContent, Card, makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -11,15 +11,12 @@ const useStyles = makeStyles(theme => ({
   },
   root: {
     width: "35%",
+    height: "60%",
     minWidth: 300,
-    height: "50%"
-  },
-  card: {
-    height: "100%",
     display: "flex",
     flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "space-around"
+    padding: "3% 2%",
+    justifyContent: "space-around",
   }
 }));
 
@@ -36,11 +33,14 @@ const UserForm = ({ page, setPage, locations, setLocations }) => {
   return (
     <div className={classes.container}>
       <Card className={classes.root}>
-        <CardHeader>
-          Where are you coming from?
-        </CardHeader>
-        <CardContent className={classes.card}>
-          <Typography>Please enter your postcodes</Typography>
+        <CardHeader title={
+          <div>
+            <div style={{ marginTop: 10 }}>Where are you coming from?</div>
+            <div style={{ fontSize: '1rem', fontWeight: 300 }}>Please enter your postcodes.</div>
+          </div>
+        }
+        />
+        <CardContent >
           <Form page={page} setPage={setPage} locations={locations} setLocations={setLocations} />
         </CardContent>
       </Card>

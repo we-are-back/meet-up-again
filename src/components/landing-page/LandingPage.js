@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
     root: {
         width: "35%",
         minWidth: 300,
-        height: "50%"
+        height: "60%"
     },
     avatar: {
         backgroundColor: theme.palette.secondary.dark,
