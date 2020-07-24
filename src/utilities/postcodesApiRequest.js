@@ -17,7 +17,7 @@ const postCodeApiRequest = async (postcodeOne, postcodeTwo) => {
           key: postcode.result.id,
           postcode: postcode.query,
           longitude: postcode.result.longitude,
-          latitude: postcode.result.latitude,
+          latitude: postcode.result.latitude
         });
       } else {
         return finalOutput.notValidPostcodes.push(postcode);
