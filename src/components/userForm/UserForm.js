@@ -33,7 +33,7 @@ const UserForm = ({ page, setPage, locations, setLocations }) => {
         <CardHeader
           title={
             <div>
-              <div style={{ marginTop: 10 }}>Where are you coming from and what do you want to do?</div>
+              <div style={{ marginTop: 10, fontFamily: "Yeseva One" }}>Where are you coming from and what do you want to do?</div>
               <div style={{ fontSize: "1rem", fontWeight: 300 }}>
                 Please enter your postcodes and select a category.
               </div>
