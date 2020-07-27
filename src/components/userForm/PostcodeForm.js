@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import formSubmitLogic from "../../utilities/logic";
-import { TextField, Button, Box } from "@material-ui/core";
+import { TextField, Button, InputLabel, Select, MenuItem, Box, FormControl } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -15,14 +15,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const UserForm = ({ page, setPage, locations, setLocations }) => {
+const PostcodeForm = ({ page, setPage, locations, setLocations }) => {
   const classes = useStyles();
   const [postCode1, setPostCode1] = useState("");
   const [postCode2, setPostCode2] = useState("");
+  const [category, setCategory] = useState("");
 
   const formSubmit = async event => {
     event.preventDefault();
-    const formResult = await formSubmitLogic(postCode1, postCode2);
+    const formResult = await formSubmitLogic(postCode1, postCode2, category);
 
     if (formResult.faultyPostcodes.length > 0) {
       if (formResult.faultyPostcodes.includes(postCode1)) setPostCode1("");
@@ -31,6 +32,11 @@ const UserForm = ({ page, setPage, locations, setLocations }) => {
     }
     setLocations(locations.concat(...formResult.locations));
     setPage("locations");
+  };
+
+  const handleChange = (event) => {
+    console.log(event.target.value)
+    setCategory(event.target.value);
   };
 
   return (
@@ -62,6 +68,20 @@ const UserForm = ({ page, setPage, locations, setLocations }) => {
         data-testid="Enter your friend postcode"
         onChange={e => setPostCode2(e.target.value)}
       />
+      <InputLabel id="label">Category</InputLabel>
+        <Select 
+        required
+        fullWidth
+        labelId="label" 
+        id="select" 
+        value={category}
+        onChange={handleChange}
+        >
+          <MenuItem value={"4d4b7104d754a06370d81259"}>Arts & Entertainment</MenuItem>
+          <MenuItem value={"4d4b7105d754a06374d81259"}>Food</MenuItem>
+          <MenuItem value={"4d4b7105d754a06376d81259"}>Nightlife Spot</MenuItem>
+          <MenuItem value={"4d4b7105d754a06377d81259"}>Outdoors & Recreation</MenuItem>
+      </Select>
       <Button
         fullWidth
         variant="contained" color="primary"
@@ -75,5 +95,5 @@ const UserForm = ({ page, setPage, locations, setLocations }) => {
   );
 };
 
-export default UserForm;
+export default PostcodeForm;
 
