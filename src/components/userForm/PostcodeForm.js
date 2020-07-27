@@ -10,9 +10,15 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "space-between",
-    padding: "2% 0 8% 0",
+    padding: "2% 0",
     margin: theme.spacing(2, 0)
   },
+  input: {
+    margin : "5px 0"
+  },
+  buttonClass: {
+    marginTop: "15px"
+  }
 }));
 
 const PostcodeForm = ({ page, setPage, locations, setLocations }) => {
@@ -41,7 +47,7 @@ const PostcodeForm = ({ page, setPage, locations, setLocations }) => {
 
   return (
     <form className={classes.root} noValidate autoComplete="off" onSubmit={formSubmit} data-testid="form-submit">
-      <TextField
+      <TextField className={classes.input}
         required
         id="outlined-required"
         label="Postcode One"
@@ -56,6 +62,7 @@ const PostcodeForm = ({ page, setPage, locations, setLocations }) => {
         autoCompletes
       />
       <TextField
+       className={classes.input}
         required
         fullWidth
         autoComplete
@@ -68,8 +75,9 @@ const PostcodeForm = ({ page, setPage, locations, setLocations }) => {
         data-testid="Enter your friend postcode"
         onChange={e => setPostCode2(e.target.value)}
       />
-      <InputLabel id="label">Category</InputLabel>
+      <InputLabel id="label"  className={classes.input}>Category</InputLabel>
         <Select 
+      
         required
         fullWidth
         labelId="label" 
@@ -83,6 +91,7 @@ const PostcodeForm = ({ page, setPage, locations, setLocations }) => {
           <MenuItem value={"4d4b7105d754a06377d81259"}>Outdoors & Recreation</MenuItem>
       </Select>
       <Button
+      className={classes.buttonClass}
         fullWidth
         variant="contained" color="primary"
         type="submit"

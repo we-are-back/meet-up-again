@@ -10,12 +10,11 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
   root: {
-    width: "35%",
-    height: "60%",
+    width: "35vw",
     minWidth: 300,
     display: "flex",
     flexDirection: "column",
-    padding: "3% 2%",
+    padding: "0 2%",
     justifyContent: "space-around",
   },
 }));
@@ -33,8 +32,22 @@ const UserForm = ({ page, setPage, locations, setLocations }) => {
         <CardHeader
           title={
             <div>
-              <div style={{ marginTop: 10, fontFamily: "Yeseva One" }}>Where are you coming from and what do you want to do?</div>
-              <div style={{ fontSize: "1rem", fontWeight: 300 }}>
+              <div
+                style={{
+                  marginTop: 15,
+                  fontFamily: "Yeseva One",
+                  fontSize: "1.8rem",
+                }}
+              >
+                Where are you coming from and what do you want to do?
+              </div>
+              <div
+                style={{
+                  fontSize: "1.2rem",
+                  fontWeight: 200,
+                  fontFamily: "Roboto",
+                }}
+              >
                 Please enter your postcodes and select a category.
               </div>
             </div>
