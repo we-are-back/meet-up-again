@@ -64,15 +64,15 @@ const Locations = ({ page, setPage, locations, setLocations, setVenueId }) => {
             {!locations.length ? (
               <p>No locations could be found</p>
             ) : (
-              locations.map((location) => (
-                <LocationItem
-                  key={location.id}
-                  location={location}
-                  setPage={setPage}
-                  setVenueId={setVenueId}
-                />
-              ))
-            )}
+                locations.sort((a, b) => a.location.distance - b.location.distance).map((location) => (
+                  <LocationItem
+                    key={location.id}
+                    location={location}
+                    setPage={setPage}
+                    setVenueId={setVenueId}
+                  />
+                ))
+              )}
           </Grid>
         </CardContent>
         <CardActions>
