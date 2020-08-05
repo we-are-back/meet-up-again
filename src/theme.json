@@ -31,8 +31,13 @@
     }
   },
   "typography": {
-    "fontFamily":{
-      
-    }
+    "fontFamily": "Roboto",
+    "fontWeight": "300", 
+    "h1": { "fontFamily": "Yeseva One", "fontSize": "4rem" },
+    "h2": { "fontFamily": "Yeseva One" },
+    "h5": { "fontFamily": "Yeseva One" },
+    "button": { "fontFamily": "Roboto" },
+    "subtitle1": { "fontFamily": "Roboto" }, 
+    "body1": { "fontFamily": "Roboto", "fontWeight": "300" }
   }
 }
