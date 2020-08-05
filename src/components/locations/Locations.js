@@ -3,7 +3,6 @@ import LocationItem from "./location-item/LocationItem";
 import {
   Button,
   Grid,
-  Typography,
   makeStyles,
   Card,
   CardHeader,
@@ -17,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   root: {
     width: "80%",
@@ -25,11 +24,15 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 300,
     padding: "3% 2%",
     overflow: "auto",
-  }
+  },
 }));
 
 const Locations = ({ page, setPage, locations, setLocations, setVenueId }) => {
   const classes = useStyles();
+  const onButtonClick = () => {
+    setPage("form");
+    setLocations([]);
+  };
 
   if (page !== "locations") {
     return null;
@@ -56,8 +59,8 @@ const Locations = ({ page, setPage, locations, setLocations, setVenueId }) => {
             </div>
           }
         />
-        <CardContent className={classes.content} maxWidth="md">
-          <Grid container spacing="2">
+        <CardContent className={classes.content} spacing={2}>
+          <Grid container spacing={2}>
             {!locations.length ? (
               <p>No locations could be found</p>
             ) : (
@@ -72,17 +75,16 @@ const Locations = ({ page, setPage, locations, setLocations, setVenueId }) => {
             )}
           </Grid>
         </CardContent>
-    <CardActions>
+        <CardActions>
           <Button
-          fullWidth
+            fullWidth
             variant="contained"
             color="primary"
-            onClick={() => setPage("form")}
+            onClick={onButtonClick}
           >
             Go back
           </Button>
-          </CardActions>
-      
+        </CardActions>
       </Card>
     </div>
   );
