@@ -1,13 +1,13 @@
 import React from "react";
 import {
   Button,
-  Avatar,
   Card,
   CardContent,
+  CardMedia,
   makeStyles,
   Typography,
 } from "@material-ui/core";
-import SentimentVerySatisfiedIcon from "@material-ui/icons/SentimentVerySatisfied";
+import image from "../../images/people.png";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -19,12 +19,11 @@ const useStyles = makeStyles((theme) => ({
   root: {
     width: "35vw",
     minWidth: 300,
+    padding: "20px",
   },
-  avatar: {
-    backgroundColor: theme.palette.secondary.dark,
-    justifyContent: "center",
-    width: "40px",
-    height: "40px",
+  media: {
+    height: 0,
+    paddingTop: "74.25%",
   },
   card: {
     height: "100%",
@@ -32,14 +31,15 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "space-around",
-    margin: "5% 0",
+    marginBottom: "5%",
   },
   button: {
     justifyContent: "center",
     color: "primary",
   },
   heading: {
-    margin: "15% 0",
+    margin: "0px 0 12% 0",
+    color: "primary",
   },
 }));
 
@@ -53,10 +53,8 @@ const LandingPage = ({ page, setPage }) => {
   return (
     <div className={classes.container}>
       <Card className={classes.root}>
+        <CardMedia image={image} className={classes.media} title="People" />
         <CardContent className={classes.card}>
-          <Avatar className={classes.avatar}>
-            <SentimentVerySatisfiedIcon fontSize="large" />
-          </Avatar>
           <Typography
             className={classes.heading}
             component="h1"

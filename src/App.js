@@ -28,10 +28,14 @@ const App = () => {
         setLocations={setLocations}
         setVenueId={setVenueId}
       />
-      <Result page={pageActive} venueId={venueId} locations={locations} setPageActive={setPageActive} />
+      <Result
+        page={pageActive}
+        venueId={venueId}
+        locations={locations}
+        setPageActive={setPageActive}
+      />
     </Container>
   );
 };
-
 
 export default App;
