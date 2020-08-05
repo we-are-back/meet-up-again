@@ -39,7 +39,10 @@ const useStyles = makeStyles((theme) => ({
   },
   heading: {
     margin: "0px 0 12% 0",
-    color: "primary",
+    color: theme.palette.primary.dark,
+    fontSize: "4.5rem",
+    lineHeight: "1",
+    textShadow: "1px 1px 3px #093892",
   },
 }));
 
@@ -61,7 +64,7 @@ const LandingPage = ({ page, setPage }) => {
             variant="h1"
             align="center"
           >
-            We will meet again
+            We Will Meet Again
           </Typography>
           <Button
             className={classes.button}
