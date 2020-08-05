@@ -34,7 +34,7 @@ const LocationItem = ({ location, setPage, setVenueId }) => {
             ? location.categories[0].name
             : "info not available"}
         </Typography>
-        <Typography>Distance from center: {distance}km</Typography>
+        <Typography>Distance from center: {distance} km</Typography>
       </div>
       <Button color="primary" size="small" onClick={handleClick}>
         Select

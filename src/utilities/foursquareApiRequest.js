@@ -10,6 +10,7 @@ const foursquareApiRequest = async (coordinate1, coordinate2, category) => {
 
 export default foursquareApiRequest;
 
+
 //categoryType
 
 // &categoryId=${category}
