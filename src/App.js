@@ -12,7 +12,7 @@ const App = () => {
   const [venueId, setVenueId] = useState();
 
   return (
-    <Container maxWidth="large">
+    <Container maxWidth="lg">
       <CssBaseline />
       <LandingPage page={pageActive} setPage={setPageActive} />
       <UserForm
@@ -28,10 +28,14 @@ const App = () => {
         setLocations={setLocations}
         setVenueId={setVenueId}
       />
-      <Result page={pageActive} venueId={venueId} locations={locations} setPageActive={setPageActive} />
+      <Result
+        page={pageActive}
+        venueId={venueId}
+        locations={locations}
+        setPageActive={setPageActive}
+      />
     </Container>
   );
 };
-
 
 export default App;

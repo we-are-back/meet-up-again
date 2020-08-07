@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Typography, Grid, makeStyles, Paper } from "@material-ui/core";
+import { Button, Typography, Grid, makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   item: {
@@ -30,6 +30,7 @@ const LocationItem = ({ location, setPage, setVenueId }) => {
   const distance = (location.location.distance / 1000).toFixed(2);
 
   return (
+<<<<<<< HEAD
     <Grid item xs={12} sm={6} md={4} spacing={2}>
       <Paper className={classes.paper}>
         <div>
@@ -47,6 +48,23 @@ const LocationItem = ({ location, setPage, setVenueId }) => {
           Select
         </Button>
       </Paper>
+=======
+    <Grid item className={classes.item} xs={12} sm={6} md={4}>
+      <div>
+        <Typography gutterBottom variant="h5" component="h2">
+          {location.name}
+        </Typography>
+        <Typography>
+          {location.categories.length
+            ? location.categories[0].name
+            : "info not available"}
+        </Typography>
+        <Typography>Distance from center: {distance} km</Typography>
+      </div>
+      <Button color="primary" size="small" onClick={handleClick}>
+        Select
+      </Button>
+>>>>>>> 124cf34fc69ebfb6d0caf2fd05c136ffab4eba10
     </Grid>
   );
 };
