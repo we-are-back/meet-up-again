@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   header: {
     marginTop: 10,
     fontSize: "4rem",
-    color: theme.palette.text.primary,
+    color: theme.palette.primary.dark,
   },
   subheader: {
     fontSize: "1.2rem",
