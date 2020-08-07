@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import formSubmitLogic from "../../utilities/logic";
-import { TextField, Button, InputLabel, Select, MenuItem } from "@material-ui/core";
-import { makeStyles } from '@material-ui/core/styles';
+import {
+  TextField,
+  Button,
+  InputLabel,
+  Select,
+  MenuItem,
+} from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -10,15 +16,14 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "space-between",
-    padding: "2% 0",
-    margin: theme.spacing(2, 0)
+    // padding: "2% 0",
   },
   input: {
-    margin: "5px 0"
+    margin: "5px 0",
   },
-  buttonClass: {
-    marginTop: "15px"
-  }
+  button: {
+    marginTop: "10px",
+  },
 }));
 
 const PostcodeForm = ({ page, setPage, locations, setLocations }) => {
@@ -27,7 +32,7 @@ const PostcodeForm = ({ page, setPage, locations, setLocations }) => {
   const [postCode2, setPostCode2] = useState("");
   const [category, setCategory] = useState("");
 
-  const formSubmit = async event => {
+  const formSubmit = async (event) => {
     event.preventDefault();
     const formResult = await formSubmitLogic(postCode1, postCode2, category);
 
@@ -45,8 +50,15 @@ const PostcodeForm = ({ page, setPage, locations, setLocations }) => {
   };
 
   return (
-    <form className={classes.root} noValidate autoComplete="off" onSubmit={formSubmit} data-testid="form-submit">
-      <TextField className={classes.input}
+    <form
+      className={classes.root}
+      noValidate
+      autoComplete="off"
+      onSubmit={formSubmit}
+      data-testid="form-submit"
+    >
+      <TextField
+        className={classes.input}
         required
         id="outlined-required"
         label="Postcode One"
@@ -56,15 +68,13 @@ const PostcodeForm = ({ page, setPage, locations, setLocations }) => {
         value={postCode1}
         name="PostCodeOne"
         data-testid="Enter your postcode"
-        onChange={e => setPostCode1(e.target.value)}
+        onChange={(e) => setPostCode1(e.target.value)}
         autoFocus
-        
       />
       <TextField
         className={classes.input}
         required
         fullWidth
-        
         id="outlined-required"
         label="Postcode Two"
         variant="outlined"
@@ -72,11 +82,12 @@ const PostcodeForm = ({ page, setPage, locations, setLocations }) => {
         value={postCode2}
         name="PostCodeTwo"
         data-testid="Enter your friend postcode"
-        onChange={e => setPostCode2(e.target.value)}
+        onChange={(e) => setPostCode2(e.target.value)}
       />
-      <InputLabel id="label" className={classes.input}>Category</InputLabel>
+      <InputLabel id="label" className={classes.input}>
+        Category
+      </InputLabel>
       <Select
-
         required
         fullWidth
         labelId="label"
@@ -84,15 +95,20 @@ const PostcodeForm = ({ page, setPage, locations, setLocations }) => {
         value={category}
         onChange={handleChange}
       >
-        <MenuItem value={"4d4b7104d754a06370d81259"}>Arts & Entertainment</MenuItem>
+        <MenuItem value={"4d4b7104d754a06370d81259"}>
+          Arts & Entertainment
+        </MenuItem>
         <MenuItem value={"4d4b7105d754a06374d81259"}>Food</MenuItem>
         <MenuItem value={"4d4b7105d754a06376d81259"}>Nightlife Spot</MenuItem>
-        <MenuItem value={"4d4b7105d754a06377d81259"}>Outdoors & Recreation</MenuItem>
+        <MenuItem value={"4d4b7105d754a06377d81259"}>
+          Outdoors & Recreation
+        </MenuItem>
       </Select>
       <Button
-        className={classes.buttonClass}
+        className={classes.button}
         fullWidth
-        variant="contained" color="primary"
+        variant="contained"
+        color="primary"
         type="submit"
         value="Find Locations"
         data-testid="input-submit"
@@ -104,4 +120,3 @@ const PostcodeForm = ({ page, setPage, locations, setLocations }) => {
 };
 
 export default PostcodeForm;
-

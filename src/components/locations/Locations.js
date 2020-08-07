@@ -55,9 +55,7 @@ const Locations = ({ page, setPage, locations, setLocations, setVenueId }) => {
         <CardHeader
           title={
             <div>
-              <div className={classes.header} style={{}}>
-                Here is a list of venues.
-              </div>
+              <div className={classes.header}>Here is a list of venues.</div>
               <div className={classes.subheader}>
                 Please select your favorite.
               </div>
