@@ -25,6 +25,17 @@ const useStyles = makeStyles((theme) => ({
     padding: "3% 2%",
     overflow: "auto",
   },
+  header: {
+    marginTop: 10,
+    fontSize: "4rem",
+    color: theme.palette.text.primary,
+  },
+  subheader: {
+    fontSize: "1.2rem",
+    fontFamily: "Roboto",
+    fontWeight: "200",
+    color: theme.palette.text.secondary,
+  },
 }));
 
 const Locations = ({ page, setPage, locations, setLocations, setVenueId }) => {
@@ -44,27 +55,23 @@ const Locations = ({ page, setPage, locations, setLocations, setVenueId }) => {
         <CardHeader
           title={
             <div>
-              <div style={{ marginTop: 10, fontSize: "4rem" }}>
+              <div className={classes.header} style={{}}>
                 Here is a list of venues.
               </div>
-              <div
-                style={{
-                  fontSize: "1.2rem",
-                  fontFamily: "Roboto",
-                  fontWeight: "200",
-                }}
-              >
+              <div className={classes.subheader}>
                 Please select your favorite.
               </div>
             </div>
           }
         />
-        <CardContent className={classes.content} spacing={2}>
-          <Grid container spacing={2}>
+        <CardContent className={classes.content}>
+          <Grid container spacing={3}>
             {!locations.length ? (
               <p>No locations could be found</p>
             ) : (
-                locations.sort((a, b) => a.location.distance - b.location.distance).map((location) => (
+              locations
+                .sort((a, b) => a.location.distance - b.location.distance)
+                .map((location) => (
                   <LocationItem
                     key={location.id}
                     location={location}
@@ -72,7 +79,7 @@ const Locations = ({ page, setPage, locations, setLocations, setVenueId }) => {
                     setVenueId={setVenueId}
                   />
                 ))
-              )}
+            )}
           </Grid>
         </CardContent>
         <CardActions>
