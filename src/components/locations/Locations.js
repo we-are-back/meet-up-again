@@ -38,7 +38,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Locations = ({ page, setPage, locations, setLocations, setVenueId }) => {
+const Locations = ({
+  page,
+  setPage,
+  locations,
+  setLocations,
+  setVenueId,
+  setImage,
+  images,
+}) => {
   const classes = useStyles();
   const onButtonClick = () => {
     setPage("form");
@@ -71,6 +79,8 @@ const Locations = ({ page, setPage, locations, setLocations, setVenueId }) => {
                 .sort((a, b) => a.location.distance - b.location.distance)
                 .map((location) => (
                   <LocationItem
+                    images={images}
+                    setImage={setImage}
                     key={location.id}
                     location={location}
                     setPage={setPage}

@@ -8,13 +8,6 @@ import {
   CardMedia,
   makeStyles,
 } from "@material-ui/core";
-import imageOne from "../../images/highFive-01.png";
-import imageTwo from "../../images/highFive-02.png";
-import imageThree from "../../images/highFive-03.png";
-import imageFour from "../../images/highFive-04.png";
-
-const images = [imageOne, imageTwo, imageThree, imageFour];
-var randomImage = images[Math.floor(Math.random() * images.length)];
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -72,7 +65,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Result = ({ page, venueId, locations, setPageActive }) => {
+const Result = ({
+  page,
+  venueId,
+  locations,
+  setPageActive,
+  image,
+  setImage,
+}) => {
   const classes = useStyles();
 
   if (page !== "result") {
@@ -81,17 +81,14 @@ const Result = ({ page, venueId, locations, setPageActive }) => {
 
   const handleBack = () => {
     setPageActive("locations");
+    setImage();
   };
 
   const venue = locations.find((location) => venueId === location.id);
   return (
     <div className={classes.container}>
       <Card className={classes.root}>
-        <CardMedia
-          image={randomImage}
-          className={classes.media}
-          title="High Five"
-        />
+        <CardMedia image={image} className={classes.media} title="High Five" />
         <div className={classes.content}>
           <CardHeader
             align="center"
