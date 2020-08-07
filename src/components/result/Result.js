@@ -5,7 +5,10 @@ import {
   CardHeader,
   Button,
   Typography,
+<<<<<<< HEAD
   CardMedia,
+=======
+>>>>>>> master
   makeStyles,
 } from "@material-ui/core";
 import imageOne from "../../images/highFive-01.png";
@@ -50,7 +53,7 @@ const Result = ({ page, venueId, locations, setPageActive }) => {
 
   const venue = locations.find((location) => venueId === location.id);
   return (
-    <div className={classes.container}>
+    <div className={classes.container} >
       <Card className={classes.root}>
         <CardMedia
           image={randomImage}
@@ -67,7 +70,7 @@ const Result = ({ page, venueId, locations, setPageActive }) => {
                   style={{
                     fontWeight: 400,
                     color: "primary",
-                    fontSize: "2rem",
+                    fontSize: "2rem"
                   }}
                 >
                   {venue.name}
@@ -78,6 +81,7 @@ const Result = ({ page, venueId, locations, setPageActive }) => {
                   fontSize: "1.2rem",
                   fontFamily: "Roboto",
                   fontWeight: 300,
+                  margin: "30px 0 10px 0"
                 }}
               >
                 Here is the address:
@@ -86,9 +90,9 @@ const Result = ({ page, venueId, locations, setPageActive }) => {
           }
         />
         <CardContent>
-          <Typography component="p" align="center">
+          <Typography component="div" align="center">
             {venue.location.formattedAddress.map((item) => (
-              <div>{item}</div>
+              <div key={item}>{item}</div>
             ))}
           </Typography>
         </CardContent>
@@ -99,6 +103,7 @@ const Result = ({ page, venueId, locations, setPageActive }) => {
           variant="contained"
           onClick={handleBack}
           width="80%"
+          margin="20px 0 10px 0"
         >
           Select another venue
         </Button>

@@ -12,7 +12,7 @@ const App = () => {
   const [venueId, setVenueId] = useState();
 
   return (
-    <Container maxWidth="large">
+    <Container maxWidth="lg">
       <CssBaseline />
       <LandingPage page={pageActive} setPage={setPageActive} />
       <UserForm

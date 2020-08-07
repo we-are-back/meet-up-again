@@ -16,8 +16,6 @@ const formSubmitLogic = async (postcode1, postcode2, category) => {
   }
 
   const centerPoint = getCenterOfBounds(verifiedPostcodes.validPostcodes);
-  console.log(result.locations);
-  console.log(centerPoint)
   try {
     const apiCallResult = await foursquareApiRequest(
       centerPoint.latitude,
@@ -29,7 +27,6 @@ const formSubmitLogic = async (postcode1, postcode2, category) => {
     console.log(error.data.message)
   }
 
-  console.log(result.locations);
   return result;
 };
 
