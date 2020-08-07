@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-[https://www.freepik.com/vectors/people](People vector created by pikisuperstar - www.freepik.com)
+[People vector created by pikisuperstar - www.freepik.com](https://www.freepik.com/vectors/people)
 
 ## Available Scripts
 
