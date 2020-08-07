@@ -38,7 +38,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Locations = ({ page, setPage, locations, setLocations, setVenueId }) => {
+const Locations = ({
+  page,
+  setPage,
+  locations,
+  setLocations,
+  setVenueId,
+  setImage,
+  images,
+}) => {
   const classes = useStyles();
   const onButtonClick = () => {
     setPage("form");
@@ -55,9 +63,7 @@ const Locations = ({ page, setPage, locations, setLocations, setVenueId }) => {
         <CardHeader
           title={
             <div>
-              <div className={classes.header} style={{}}>
-                Here is a list of venues.
-              </div>
+              <div className={classes.header}>Here is a list of venues.</div>
               <div className={classes.subheader}>
                 Please select your favorite.
               </div>
@@ -73,6 +79,8 @@ const Locations = ({ page, setPage, locations, setLocations, setVenueId }) => {
                 .sort((a, b) => a.location.distance - b.location.distance)
                 .map((location) => (
                   <LocationItem
+                    images={images}
+                    setImage={setImage}
                     key={location.id}
                     location={location}
                     setPage={setPage}

@@ -14,8 +14,21 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 300,
     display: "flex",
     flexDirection: "column",
-    padding: "0 2%",
-    justifyContent: "space-around",
+    padding: "20px",
+    justifyContent: "space-between",
+  },
+  header: {
+    fontSize: "2rem",
+    lineHeight: "1",
+    fontFamily: "Yeseva One",
+    color: theme.palette.primary.dark,
+  },
+  subheader: {
+    marginTop: "5px",
+    fontSize: "1.2rem",
+    fontFamily: "Roboto",
+    fontWeight: "200",
+    color: theme.palette.text.secondary,
   },
 }));
 
@@ -32,22 +45,10 @@ const UserForm = ({ page, setPage, locations, setLocations }) => {
         <CardHeader
           title={
             <div>
-              <div
-                style={{
-                  marginTop: 15,
-                  fontFamily: "Yeseva One",
-                  fontSize: "1.8rem",
-                }}
-              >
+              <div className={classes.header}>
                 Where are you coming from and what do you want to do?
               </div>
-              <div
-                style={{
-                  fontSize: "1.2rem",
-                  fontWeight: 200,
-                  fontFamily: "Roboto",
-                }}
-              >
+              <div className={classes.subheader}>
                 Please enter your postcodes and select a category.
               </div>
             </div>

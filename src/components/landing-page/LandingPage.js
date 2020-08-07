@@ -25,13 +25,12 @@ const useStyles = makeStyles((theme) => ({
     height: 0,
     paddingTop: "74.25%",
   },
-  card: {
+  content: {
     height: "100%",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "space-around",
-    marginBottom: "5%",
   },
   button: {
     justifyContent: "center",
@@ -57,7 +56,7 @@ const LandingPage = ({ page, setPage }) => {
     <div className={classes.container}>
       <Card className={classes.root}>
         <CardMedia image={image} className={classes.media} title="People" />
-        <CardContent className={classes.card}>
+        <CardContent className={classes.content}>
           <Typography
             className={classes.heading}
             component="h1"

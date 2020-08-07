@@ -5,6 +5,7 @@ import {
   CardHeader,
   Button,
   Typography,
+  CardMedia,
   makeStyles,
 } from "@material-ui/core";
 
@@ -16,16 +17,62 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
   root: {
-    width: "35%",
+    width: "35vw",
     minWidth: 300,
+    padding: "30px 20px",
+  },
+  content: {
+    height: "100%",
     display: "flex",
     flexDirection: "column",
-    padding: "3% 2%",
+    alignItems: "center",
     justifyContent: "space-around",
+  },
+  media: {
+    height: 0,
+    paddingTop: "59.25%",
+  },
+  header: {
+    marginTop: 10,
+    fontSize: "4rem",
+    lineHeight: "1",
+    fontFamily: "Yeseva One",
+    color: theme.palette.primary.dark,
+  },
+  subheader: {
+    fontSize: "1.2rem",
+    fontFamily: "Roboto",
+    fontWeight: "200",
+    color: theme.palette.text.secondary,
+  },
+  intro: {
+    fontSize: "1.4rem",
+    fontFamily: "Roboto",
+    fontWeight: "200",
+    marginTop: "30px",
+    color: theme.palette.text.secondary,
+  },
+  address: {
+    fontSize: "1.2rem",
+    fontWeight: "400",
+    lineHeight: "1.4",
+    color: theme.palette.text.primary,
+  },
+  button: {
+    justifyContent: "center",
+    color: "primary",
+    marginTop: "20px",
   },
 }));
 
-const Result = ({ page, venueId, locations, setPageActive }) => {
+const Result = ({
+  page,
+  venueId,
+  locations,
+  setPageActive,
+  image,
+  setImage,
+}) => {
   const classes = useStyles();
 
   if (page !== "result") {
@@ -34,59 +81,48 @@ const Result = ({ page, venueId, locations, setPageActive }) => {
 
   const handleBack = () => {
     setPageActive("locations");
+    setImage();
   };
 
   const venue = locations.find((location) => venueId === location.id);
   return (
-    <div className={classes.container} >
+    <div className={classes.container}>
       <Card className={classes.root}>
-        <CardHeader
-          align="center"
-          title={
-            <div>
-              <div style={{ marginTop: 10, fontSize: "1.3rem" }}>
-                You are meeting at <br />
-                <span
-                  style={{
-                    fontWeight: 400,
-                    color: "primary",
-                    fontSize: "2rem"
-                  }}
-                >
-                  {venue.name}
-                </span>
+        <CardMedia image={image} className={classes.media} title="High Five" />
+        <div className={classes.content}>
+          <CardHeader
+            align="center"
+            title={
+              <div>
+                <div className={classes.subheader}>
+                  You are meeting at
+                  <br />
+                  <span className={classes.header}>{venue.name}</span>
+                </div>
+                <div className={classes.intro}>Here is the address:</div>
               </div>
-              <div
-                style={{
-                  fontSize: "1.2rem",
-                  fontFamily: "Roboto",
-                  fontWeight: 300,
-                  margin: "30px 0 10px 0"
-                }}
-              >
-                Here is the address:
-              </div>
-            </div>
-          }
-        />
-        <CardContent>
-          <Typography component="div" align="center">
-            {venue.location.formattedAddress.map((item) => (
-              <div key={item}>{item}</div>
-            ))}
-          </Typography>
-        </CardContent>
+            }
+          />
+          <CardContent>
+            <Typography component="div" align="center">
+              {venue.location.formattedAddress.map((item) => (
+                <div className={classes.address} key={item}>
+                  {item}
+                </div>
+              ))}
+            </Typography>
+          </CardContent>
 
-        <Button
-          color="primary"
-          align="center"
-          variant="contained"
-          onClick={handleBack}
-          width="80%"
-          margin="20px 0 10px 0"
-        >
-          Select another venue
-        </Button>
+          <Button
+            variant="contained"
+            onClick={handleBack}
+            size="large"
+            className={classes.button}
+            color="primary"
+          >
+            Select another venue
+          </Button>
+        </div>
       </Card>
     </div>
   );

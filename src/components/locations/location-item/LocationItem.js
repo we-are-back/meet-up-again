@@ -20,10 +20,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const LocationItem = ({ location, setPage, setVenueId }) => {
+const LocationItem = ({ location, setPage, setVenueId, images, setImage }) => {
   const classes = useStyles();
   const handleClick = () => {
     setVenueId(location.id);
+    const randomImage = images[Math.floor(Math.random() * images.length)];
+    setImage(randomImage);
     setPage("result");
   };
 
