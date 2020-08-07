@@ -5,9 +5,16 @@ import {
   CardHeader,
   Button,
   Typography,
-  CardActions,
+  CardMedia,
   makeStyles,
 } from "@material-ui/core";
+import imageOne from "../../images/highFive-01.png";
+import imageTwo from "../../images/highFive-02.png";
+import imageThree from "../../images/highFive-03.png";
+import imageFour from "../../images/highFive-04.png";
+
+const images = [imageOne, imageTwo, imageThree, imageFour];
+var randomImage = images[Math.floor(Math.random() * images.length)];
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -23,6 +30,10 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     padding: "3% 2%",
     justifyContent: "space-around",
+  },
+  media: {
+    height: 0,
+    paddingTop: "74.25%",
   },
 }));
 
@@ -41,6 +52,11 @@ const Result = ({ page, venueId, locations, setPageActive }) => {
   return (
     <div className={classes.container}>
       <Card className={classes.root}>
+        <CardMedia
+          image={randomImage}
+          className={classes.media}
+          title="High Five"
+        />
         <CardHeader
           align="center"
           title={
